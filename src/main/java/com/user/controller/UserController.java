@@ -1,4 +1,4 @@
-package com.user.web;
+package com.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,24 +15,17 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping("/users")
-	public String getUsers() {
-		System.out.println("Users found: Jyoti, Gurinder, Dan");
-		return "/index";
+	public ModelAndView getUsers() {
+		Iterable<User> list =
+				userService.findAllUsers();
+			System.out.println("findAllUsers " + list);
+			return new ModelAndView("browseUsers",
+				 "userList", list);
 	}
 	
 	@GetMapping("/") 
 	public String getRoot() {
 		return "redirect:/index.html";
 	}
-
-	
-	@RequestMapping("/browse")
-	public ModelAndView browseUsers() {
-		Iterable<User> list =
-			userService.findAllUsers();
-		return new ModelAndView("browseUsers",
-			 "userList", list);
-	}
-	
 	
 }

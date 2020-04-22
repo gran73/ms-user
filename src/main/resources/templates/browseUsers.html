@@ -14,7 +14,15 @@
 			<td>Email</td>
 			<td>Password</td>
 		</tr>
-		
+			<tr th:each="user : ${userList}">
+			<!-- Add Edit link -->
+			<td>Edit</td>
+			<!-- Other user details -->
+			
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.email}"></td>
+			<td th:text="${user.password}"></td>
+		</tr>
 	</table>
 	<br />
 
