@@ -11,9 +11,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/index.html")
-	public String getIndex() {
-		System.out.println("getIndex was called");
+	@GetMapping("/users")
+	public String getUsers() {
+		System.out.println("Users found: Jyoti, Gurinder, Dan");
 		return "/index";
 	}
 	
