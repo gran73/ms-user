@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,8 +29,8 @@ public class UserController {
 		return repo.findById(id);
 	}
 	
-	@GetMapping("/email/{email}")
-	public Optional<User> getUserByEmail (@PathVariable("email") String email) {
+	@GetMapping("/email")
+	public Optional<User> getUserByEmail (@RequestParam("email") String email) {
 		return repo.findByEmail(email);
 	}
 	

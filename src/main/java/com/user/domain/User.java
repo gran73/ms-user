@@ -13,6 +13,7 @@ import javax.validation.constraints.Email;
 public class User {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	long id;
 	
 	String name;
@@ -43,12 +44,6 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
 	}
 	
 }
