@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.user.domain.User;
 import com.user.repository.UserRepository;
+import com.user.domain.User;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,5 +22,9 @@ public class UserServiceImpl implements UserService {
 		return new User();	
 	}
 	
+	public Iterable<User> findAllUsers() {
+		return repo.findAll();
+	}
+
 	
 }
