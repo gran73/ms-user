@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 		return new User();	
 	}
 	
-	public Iterable<User> findAllUsers() {
+	public Iterable<User> findAll() {
 		return repo.findAll();
 	}
 
